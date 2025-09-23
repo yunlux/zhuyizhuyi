@@ -1,4 +1,4 @@
-﻿const slugify = require("@sindresorhus/slugify");
+const slugify = require("@sindresorhus/slugify");
 const markdownIt = require("markdown-it");
 const fs = require("fs");
 const matter = require("gray-matter");
@@ -23,7 +23,7 @@ function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
     urlPath: "/img/optimized",
   };
 
-  // generate images, while this is async we don鈥檛 wait
+  // generate images, while this is async we don’t wait
   Image(src, options);
   let metadata = Image.statsSync(src, options);
   return metadata;
@@ -93,7 +93,7 @@ function getAnchorAttributes(filePath, linkTitle) {
 
 const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
 
-module.exports = async function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
   });
@@ -573,4 +573,3 @@ module.exports = async function(eleventyConfig) {
     passthroughFileCopy: true,
   };
 };
-
